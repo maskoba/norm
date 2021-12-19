@@ -2,13 +2,10 @@ import os
 import sys
 from PySide2.QtWidgets import QApplication
 from PySide2.QtQml import QQmlApplicationEngine
-# from PySide2.QtCore import QObject, Slot, Signal, QTimer, QUrl, QThread
-from PySide2.QtCore import QObject, Signal, Property, QUrl, Slot, QThread, QTimer, Qt
-from PySide2.QtQml import qmlRegisterType
+from PySide2.QtCore import QObject, Signal, Property, QUrl, Slot
 import pigpio
 import queue
 import threading
-import time
 from datetime import datetime
 
 count = 0
@@ -27,6 +24,7 @@ gpio_OUT2 = 23  # GPIO23(16)
 gpio_OUT3 = 24  # GPIO24(18)
 
 class ThreadPress(threading.Thread):
+    global backend
     """Threaded Press"""
     def __init__(self, queue):
         threading.Thread.__init__(self,name='Press')
@@ -35,7 +33,6 @@ class ThreadPress(threading.Thread):
         self.preset = 8
         self.total = 0
         self.hako = 0
-        self.backend = Backend()
 
     def run(self):
         while True:
@@ -52,12 +49,8 @@ class ThreadPress(threading.Thread):
                     if host == 8:
                         self.hako = 0
                         self.state = 0
-                self.backend.value_changed.emit()
-                print("state: %s total: %s hako: %s" % (self.state,self.total,self.hako))
-                # if (host % 2) == 1:
-                #     print("%s at ON time: %s" % (self.getName(), datetime.now()))
-                # else:
-                #     print("%s at OFF time: %s" % (self.getName(), datetime.now()))
+                backend.value_changed.emit(host)
+                # print("state: %s total: %s hako: %s" % (self.state,self.total,self.hako))
                 #signals to queue job is done
                 self.queue.task_done()
             except:
@@ -66,8 +59,8 @@ class ThreadPress(threading.Thread):
 
 
 class Backend(QObject):
-    value_changed = Signal()
-    progress_changed = Signal(str)
+    value_changed = Signal(int)
+    progress_changed = Signal(int)
 
     def __init__(self):
         QObject.__init__(self)
@@ -113,12 +106,12 @@ class Backend(QObject):
     def set_count(self,num):
         self.progress_changed.emit(num)
     
-    @Slot()
-    def on_timer(self):
-        self.set_count("1")
+    @Slot(int)
+    def on_timer(self,num):
+        self.set_count(num)
 
 def main():
-    # global pytext
+    global backend
     """ 環境変数に Qt Quick Controls 2 のコンフィグファイル設定 を追加する
       環境変数 QT_QUICK_CONTROLS_CONF に対して、本 Code と同じ
       ディレクトリにある qtquickcontrols2.conf
@@ -135,7 +128,6 @@ def main():
     backend = Backend()
     # backend クラスを QML の backend としてバインディングする
     engine.rootContext().setContextProperty("backend", backend)
-    # backend.value_changed.connect(backend.on_timer)
 
     url = QUrl("main.qml")
     # QML ファイルのロード
