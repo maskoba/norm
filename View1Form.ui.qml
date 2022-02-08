@@ -3,11 +3,11 @@
 import QtQuick.Layouts 1.0
 import QtQuick 2.11
 import QtQuick.Controls 2.4
-import QtQuick.Controls.Material 2.0
 
+//import QtQuick.Controls.Material 2.0
 Item {
     id: element
-    Material.theme: Material.Dark
+    //    Material.theme: Material.Dark
     property alias button: button
     property alias label: label
     property alias label5: label5
@@ -19,7 +19,12 @@ Item {
     property alias button2: button2
     property alias button1: button1
     property alias button4: button4
-    property alias button5: button5
+    property alias rectangle: rectangle
+    property alias rectangle1: rectangle1
+    property alias rectangle2: rectangle2
+    property alias rectangle4: rectangle4
+    property alias rectangle5: rectangle5
+    property alias rectangle3: rectangle3
 
     RowLayout {
         y: 127
@@ -30,15 +35,17 @@ Item {
 
         Rectangle {
             id: rectangle
-            color: "#00000000"
             property int property0: 0
-            border.color: "#000000"
+            color: "#00000000"
+            border.color: "#ff0000"
             Layout.preferredHeight: 40
             Layout.preferredWidth: 80
 
             Label {
                 id: label
                 text: "IN0"
+                styleColor: "#00000000"
+                font.pointSize: 13
                 anchors.fill: parent
                 verticalAlignment: Text.AlignVCenter
                 horizontalAlignment: Text.AlignHCenter
@@ -48,13 +55,14 @@ Item {
         Rectangle {
             id: rectangle1
             color: "#00000000"
-            border.color: "#000000"
+            border.color: "#ff0000"
             Layout.preferredHeight: 40
             Layout.preferredWidth: 80
 
             Label {
                 id: label1
                 text: qsTr("IN1")
+                font.pointSize: 13
                 verticalAlignment: Text.AlignVCenter
                 horizontalAlignment: Text.AlignHCenter
                 anchors.fill: parent
@@ -64,13 +72,14 @@ Item {
         Rectangle {
             id: rectangle2
             color: "#00000000"
-            border.color: "#000000"
+            border.color: "#ff0000"
             Layout.preferredHeight: 40
             Layout.preferredWidth: 80
 
             Label {
                 id: label2
                 text: qsTr("IN2")
+                font.pointSize: 13
                 verticalAlignment: Text.AlignVCenter
                 horizontalAlignment: Text.AlignHCenter
                 anchors.fill: parent
@@ -80,13 +89,14 @@ Item {
         Rectangle {
             id: rectangle3
             color: "#00000000"
-            border.color: "#000000"
+            border.color: "#ff0000"
             Layout.preferredHeight: 40
             Layout.preferredWidth: 80
 
             Label {
                 id: label3
                 text: qsTr("IN3")
+                font.pointSize: 13
                 verticalAlignment: Text.AlignVCenter
                 horizontalAlignment: Text.AlignHCenter
                 anchors.fill: parent
@@ -96,13 +106,14 @@ Item {
         Rectangle {
             id: rectangle4
             color: "#00000000"
-            border.color: "#000000"
+            border.color: "#ff0000"
             Layout.preferredHeight: 40
             Layout.preferredWidth: 80
 
             Label {
                 id: label4
                 text: qsTr("IN4")
+                font.pointSize: 13
                 verticalAlignment: Text.AlignVCenter
                 horizontalAlignment: Text.AlignHCenter
                 anchors.fill: parent
@@ -112,13 +123,14 @@ Item {
         Rectangle {
             id: rectangle5
             color: "#00000000"
-            border.color: "#000000"
+            border.color: "#ff0000"
             Layout.preferredHeight: 40
             Layout.preferredWidth: 80
 
             Label {
                 id: label5
                 text: qsTr("IN5")
+                font.pointSize: 13
                 verticalAlignment: Text.AlignVCenter
                 horizontalAlignment: Text.AlignHCenter
                 anchors.fill: parent
@@ -137,24 +149,28 @@ Item {
         Button {
             id: button
             text: qsTr("OUT0")
+            font.pointSize: 13
             checkable: true
         }
 
         Button {
             id: button1
             text: qsTr("OUT1")
+            font.pointSize: 13
             checkable: true
         }
 
         Button {
             id: button2
             text: qsTr("OUT2")
+            font.pointSize: 13
             checkable: true
         }
 
         Button {
             id: button3
             text: qsTr("OUT3")
+            font.pointSize: 13
             checkable: true
         }
     }
@@ -175,17 +191,11 @@ Item {
         id: button4
         y: 288
         text: qsTr("QUIT")
+        font.pointSize: 13
         anchors.right: parent.right
         anchors.rightMargin: 200
         anchors.left: parent.left
         anchors.leftMargin: 200
-    }
-
-    Button {
-        id: button5
-        x: 200
-        y: 373
-        text: qsTr("Button")
     }
 }
 

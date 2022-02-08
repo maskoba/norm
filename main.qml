@@ -11,9 +11,6 @@ ApplicationWindow {
         button4.onClicked: {
             Qt.quit()
         }
-        button5.onClicked:{
-            backend.start_worker5()
-        }
         button.onClicked:{
             if(button.checked){
                 backend.start_worker0(true)
@@ -52,7 +49,7 @@ ApplicationWindow {
     function inputLevel(level) {
         switch (level) {
             case 0:
-                view1Form.label.color = "#00000000";
+                view1Form.label.color = "#dd000000";
                 break;
         
             case 1:
@@ -60,7 +57,7 @@ ApplicationWindow {
                 break;
         
             case 2:
-                view1Form.label1.color = "#00000000";
+                view1Form.label1.color = "#dd000000";
                 break;
         
             case 3:
@@ -68,7 +65,7 @@ ApplicationWindow {
                 break;
         
             case 4:
-                view1Form.label2.color = "#00000000";
+                view1Form.label2.color = "#dd000000";
                 break;
         
             case 5:
@@ -76,7 +73,7 @@ ApplicationWindow {
                 break;
         
             case 6:
-                view1Form.label3.color = "#00000000";
+                view1Form.label3.color = "#dd000000";
                 break;
         
             case 7:
@@ -84,7 +81,7 @@ ApplicationWindow {
                 break;
         
             case 8:
-                view1Form.label4.color = "#00000000";
+                view1Form.label4.color = "#dd000000";
                 break;
         
             case 9:
@@ -92,7 +89,7 @@ ApplicationWindow {
                 break;
         
             case 10:
-                view1Form.label5.color = "#00000000";
+                view1Form.label5.color = "#dd000000";
                 break;
         
             case 11:
