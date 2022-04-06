@@ -172,18 +172,18 @@ pi.set_mode(gpio_IN2, pigpio.INPUT)   # GPIO pin を入力設定
 pi.set_mode(gpio_IN3, pigpio.INPUT)   # GPIO pin を入力設定
 pi.set_mode(gpio_IN4, pigpio.INPUT)   # GPIO pin を入力設定
 pi.set_mode(gpio_IN5, pigpio.INPUT)   # GPIO pin を入力設定
-# pi.set_pull_up_down(gpio_IN0, pigpio.PUD_DOWN) # GPIO入力をプルダウンする
-# pi.set_pull_up_down(gpio_IN1, pigpio.PUD_DOWN)
-# pi.set_pull_up_down(gpio_IN2, pigpio.PUD_DOWN)
-# pi.set_pull_up_down(gpio_IN3, pigpio.PUD_DOWN)
-# pi.set_pull_up_down(gpio_IN4, pigpio.PUD_DOWN)
-# pi.set_pull_up_down(gpio_IN5, pigpio.PUD_DOWN)
-pi.set_pull_up_down(gpio_IN0, pigpio.PUD_UP) # GPIO入力をプルアップする
-pi.set_pull_up_down(gpio_IN1, pigpio.PUD_UP)
-pi.set_pull_up_down(gpio_IN2, pigpio.PUD_UP)
-pi.set_pull_up_down(gpio_IN3, pigpio.PUD_UP)
-pi.set_pull_up_down(gpio_IN4, pigpio.PUD_UP)
-pi.set_pull_up_down(gpio_IN5, pigpio.PUD_UP)
+pi.set_pull_up_down(gpio_IN0, pigpio.PUD_DOWN) # GPIO入力をプルダウンする
+pi.set_pull_up_down(gpio_IN1, pigpio.PUD_DOWN)
+pi.set_pull_up_down(gpio_IN2, pigpio.PUD_DOWN)
+pi.set_pull_up_down(gpio_IN3, pigpio.PUD_DOWN)
+pi.set_pull_up_down(gpio_IN4, pigpio.PUD_DOWN)
+pi.set_pull_up_down(gpio_IN5, pigpio.PUD_DOWN)
+# pi.set_pull_up_down(gpio_IN0, pigpio.PUD_UP) # GPIO入力をプルアップする
+# pi.set_pull_up_down(gpio_IN1, pigpio.PUD_UP)
+# pi.set_pull_up_down(gpio_IN2, pigpio.PUD_UP)
+# pi.set_pull_up_down(gpio_IN3, pigpio.PUD_UP)
+# pi.set_pull_up_down(gpio_IN4, pigpio.PUD_UP)
+# pi.set_pull_up_down(gpio_IN5, pigpio.PUD_UP)
 pi.set_mode(gpio_OUT0, pigpio.OUTPUT)   # GPIO pin を出力設定
 pi.set_mode(gpio_OUT1, pigpio.OUTPUT)   # GPIO pin を出力設定
 pi.set_mode(gpio_OUT2, pigpio.OUTPUT)   # GPIO pin を出力設定
